@@ -16,21 +16,10 @@ variable "provider_url" {
 variable "eks_cluster_name" {
   type = string
 }
-# variable "name" {
-#   type = string
-# }
-# variable "namespace"{
-#     type = string
-# }
+variable "name" {
+  type = string
+}
 variable "create_role"{
     type = bool
     default =false
-}
-variable "account_id"{
-    type = string  
-}
-variable "iam_service"{
-    type = map(string)
-
-
 }
