@@ -31,12 +31,12 @@ module "iam_service_account" {
   for_each =  var.iam_service
   role_name   = "${each.key}-${var.eks_cluster_name}"
 
-  attach_vpc_cni_policy = true
-  vpc_cni_enable_ipv4   = true
+  # attach_vpc_cni_policy = true
+  # vpc_cni_enable_ipv4   = true
 
   oidc_providers = {
     main = {
-      provider_arn               = var.provider_url
+      provider_arn               = "arn:aws:iam::${var.account_id}:oidc-provider/${var.provider_url}"
       namespace_service_accounts = ["${each.value}"]
     }
   }
